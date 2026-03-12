@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CashTask</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1>CashTask</h1>
+<p>Earn money completing simple online tasks</p>
+<a href="register.html">Register</a>
+<a href="login.html">Login</a>
+</header>
+
+<section>
+<h2>How it Works</h2>
+<ol>
+<li>Create an account</li>
+<li>Complete tasks</li>
+<li>Earn money</li>
+<li>Withdraw via mobile money</li>
+</ol>
+</section>
+</body>
+</html>

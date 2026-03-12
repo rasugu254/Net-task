@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h2>User Dashboard</h2>
+<p>Your Balance: <span id="balance">0</span> KSh</p>
+<a href="tasks.html">View Tasks</a>
+<a href="withdraw.html">Withdraw</a>
+<a href="index.html">Logout</a>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tasks</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h2>Available Tasks</h2>
+<div class="task">
+<p>Like a Facebook Page - Earn 5 KSh</p>
+<button onclick="completeTask(5)">Complete</button>
+</div>
+
+<div class="task">
+<p>Follow Instagram Account - Earn 10 KSh</p>
+<button onclick="completeTask(10)">Complete</button>
+</div>
+
+<div class="task">
+<p>Subscribe to YouTube - Earn 15 KSh</p>
+<button onclick="completeTask(15)">Complete</button>
+</div>
+
+<a href="dashboard.html">Back to Dashboard</a>
+<script src="script.js"></script>
+</body>
+</html>

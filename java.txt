@@ -1,0 +1,83 @@
+// Simple user storage (using localStorage)
+function registerUser() {
+  const username = document.getElementById('username').value;
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
+
+  if (username && email && password) {
+    const existingUser = localStorage.getItem('user_' + username);
+    if (existingUser) {
+      alert('Username already exists!');
+      return;
+    }
+    localStorage.setItem('user_' + username, JSON.stringify({
+      username: username,
+      email: email,
+      password: password,
+      balance: 0
+    }));
+    alert('Registration successful! Please login.');
+    window.location.href = 'login.html';
+  }
+}
+
+function loginUser() {
+  const username = document.getElementById('loginUser').value;
+  const password = document.getElementById('loginPass').value;
+
+  const user = JSON.parse(localStorage.getItem('user_' + username));
+  if (user && user.password === password) {
+    localStorage.setItem('currentUser', username);
+    window.location.href = 'dashboard.html';
+  } else {
+    alert('Invalid credentials');
+  }
+}
+
+function completeTask(amount) {
+  const currentUser = localStorage.getItem('currentUser');
+  if (currentUser) {
+    const user = JSON.parse(localStorage.getItem('user_' + currentUser));
+    user.balance += amount;
+    localStorage.setItem('user_' + currentUser, JSON.stringify(user));
+    alert('Task completed! Earned ' + amount + ' KSh');
+    location.reload();
+  } else {
+    alert('Please login first!');
+    window.location.href = 'login.html';
+  }
+}
+
+function showBalance() {
+  const currentUser = localStorage.getItem('currentUser');
+  if (currentUser) {
+    const user = JSON.parse(localStorage.getItem('user_' + currentUser));
+    const balanceElement = document.getElementById('balance');
+    if (balanceElement) {
+      balanceElement.textContent = user.balance;
+    }
+  }
+}
+
+function withdrawMoney() {
+  const currentUser = localStorage.getItem('currentUser');
+  const amount = parseInt(document.getElementById('withdrawAmount').value);
+  const phone = document.getElementById('phone').value;
+  
+  if (currentUser && amount > 0 && phone) {
+    const user = JSON.parse(localStorage.getItem('user_' + currentUser));
+    if (user.balance >= amount) {
+      user.balance -= amount;
+      localStorage.setItem('user_' + currentUser, JSON.stringify(user));
+      alert('Withdrawal of ' + amount + ' KSh to ' + phone + ' successful!');
+      window.location.href = 'dashboard.html';
+    } else {
+      alert('Insufficient balance');
+    }
+  }
+}
+
+// Load balance on page load
+window.onload = function() {
+  showBalance();
+};

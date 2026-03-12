@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Withdraw</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h2>Withdraw Money</h2>
+<p>Current Balance: <span id="balance">0</span> KSh</p>
+<form onsubmit="withdrawMoney(); return false;">
+<input type="number" id="withdrawAmount" placeholder="Amount to withdraw" required>
+<input type="text" id="phone" placeholder="M-Pesa Number" required>
+<button type="submit">Withdraw</button>
+</form>
+<a href="dashboard.html">Back to Dashboard</a>
+<script src="script.js"></script>
+</body>
+</html>
